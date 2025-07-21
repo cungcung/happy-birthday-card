@@ -4,11 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Selamat Ulang Tahun 🎉</title>
+
+  <!-- Font Dekoratif dari Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Pacifico', cursive;
       background: url('bg.png') no-repeat center center fixed;
       background-size: cover;
       display: flex;
@@ -53,13 +57,13 @@
       align-items: center;
       justify-content: center;
       padding: 20px;
-      background: rgba(255, 255, 255, 0.85); /* transparan */
+      background: rgba(255, 255, 255, 0.85);
     }
 
     .back {
       transform: rotateY(180deg);
       flex-direction: column;
-      background: rgba(255, 245, 200, 0.85); /* transparan warna kuning muda */
+      background: rgba(255, 245, 200, 0.85);
     }
 
     .button {
@@ -87,9 +91,21 @@
       font-size: 22px;
       color: #333;
     }
+
+    .pengirim {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #555;
+    }
   </style>
 </head>
 <body>
+
+  <!-- 🎵 Musik Ulang Tahun -->
+  <audio autoplay loop hidden>
+    <source src="https://files.catbox.moe/1t3j3e.mp3" type="audio/mpeg">
+  </audio>
+
   <div class="container">
     <div class="card" id="kartu">
       <div class="inner-card">
@@ -99,10 +115,29 @@
         <div class="back">
           <h2>Untuk Kevin 🎉</h2>
           <p class="ucapan">Semoga panjang umur, sehat selalu, dan semua cita-cita tercapai!</p>
+          <p class="pengirim">Dari: Papa ❤️</p>
         </div>
       </div>
-      <button class="button" onclick="document.getElementById('kartu').classList.toggle('open')">Buka Ucapan</button>
+      <button class="button" onclick="bukaUcapan()">Buka Ucapan</button>
     </div>
   </div>
+
+  <!-- 🎊 Confetti dari CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    function bukaUcapan() {
+      const kartu = document.getElementById('kartu');
+      kartu.classList.toggle('open');
+
+      // Jalankan confetti saat pertama kali dibuka
+      if (kartu.classList.contains('open')) {
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+      }
+    }
+  </script>
 </body>
 </html>
