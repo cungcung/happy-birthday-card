@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Selamat Ulang Tahun 🎉</title>
 
-  <!-- Font Dekoratif dari Google Fonts -->
+  <!-- Font Lucu -->
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
   <style>
@@ -15,29 +15,33 @@
       font-family: 'Pacifico', cursive;
       background: url('bg.png') no-repeat center center fixed;
       background-size: cover;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
     }
 
     .container {
       text-align: center;
     }
 
-    .card {
-      width: 300px;
-      perspective: 1000px;
+    .card-area {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 20px;
     }
 
+    .card {
+      width: 300px;
+      height: 200px;
+      perspective: 1000px;
+    }
+
     .inner-card {
       position: relative;
       width: 100%;
-      height: 200px;
+      height: 100%;
       transition: transform 1s;
       transform-style: preserve-3d;
     }
@@ -101,38 +105,39 @@
 </head>
 <body>
 
-  <!-- 🎵 Musik Ulang Tahun -->
+  <!-- 🎵 Musik -->
   <audio autoplay loop hidden>
     <source src="https://files.catbox.moe/1t3j3e.mp3" type="audio/mpeg">
   </audio>
 
   <div class="container">
-    <div class="card" id="kartu">
-      <div class="inner-card">
-        <div class="front">
-          <h2>🎂 Selamat Ulang Tahun!</h2>
-        </div>
-        <div class="back">
-          <h2>Untuk Kevin 🎉</h2>
-          <p class="ucapan">Semoga panjang umur, sehat selalu, dan semua cita-cita tercapai!</p>
-          <p class="pengirim">Dari: Papa ❤️</p>
+    <div class="card-area">
+      <div class="card" id="kartu">
+        <div class="inner-card">
+          <div class="front">
+            <h2>🎂 Selamat Ulang Tahun!</h2>
+          </div>
+          <div class="back">
+            <h2>Untuk Kevin 🎉</h2>
+            <p class="ucapan">Semoga panjang umur, sehat selalu, dan semua cita-cita tercapai!</p>
+            <p class="pengirim">Dari: Papa ❤️</p>
+          </div>
         </div>
       </div>
       <button class="button" onclick="bukaUcapan()">Buka Ucapan</button>
     </div>
   </div>
 
-  <!-- 🎊 Confetti dari CDN -->
+  <!-- 🎊 Confetti -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
     function bukaUcapan() {
       const kartu = document.getElementById('kartu');
       kartu.classList.toggle('open');
 
-      // Jalankan confetti saat pertama kali dibuka
       if (kartu.classList.contains('open')) {
         confetti({
-          particleCount: 100,
+          particleCount: 120,
           spread: 70,
           origin: { y: 0.6 }
         });
