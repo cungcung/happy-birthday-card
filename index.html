@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kartu Ucapan Ulang Tahun</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #FAD961, #F76B1C);
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .btn-open {
+      padding: 14px 28px;
+      font-size: 1.1rem;
+      background: #ff5c00;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+      transition: 0.3s ease;
+    }
+
+    .btn-open:hover {
+      background: #e64e00;
+      transform: scale(1.05);
+    }
+
+    .card {
+      display: none;
+      margin-top: 20px;
+      width: 320px;
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card h1 {
+      color: #333;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #555;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="btn-open" onclick="showCard()">🎁 Buka Kartu</button>
+
+    <div class="card" id="birthdayCard">
+      <h1>Selamat Ulang Tahun!</h1>
+      <p>
+        Semoga hari spesialmu dipenuhi kebahagiaan, cinta, dan keberuntungan! 🎉<br>
+        Jangan lupa tersenyum dan bersyukur atas semua yang kamu miliki. 🥰
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function showCard() {
+      document.querySelector('.btn-open').style.display = 'none';
+      document.getElementById('birthdayCard').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
